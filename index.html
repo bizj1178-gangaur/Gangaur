@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sona">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Choose a collection</title>
+  <!-- theme.js in <head>, no defer: applies saved theme before paint -->
+  <script src="js/theme.js"></script>
+  <!-- Intro animation switch: hides the landing picture until intro.js has played.
+       Skipped automatically for people who set "reduce motion" on their device. -->
+  <script>
+    (function () {
+      var r = document.documentElement;
+      var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduce) r.classList.add("intro-on", "intro-red");
+      setTimeout(function () { r.classList.remove("intro-on", "intro-red"); }, 12000); // safety: never stay stuck
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing-page">
+  <header class="site-header">
+    <div id="theme-toggle-slot"></div>  <!-- toggle appears here -->
+  </header>
+
+  <main class="landing-main">
+    <h1 class="sr-only">Choose a collection</h1>
+
+    <!-- The landing picture: one image per theme, stacked.
+         Sona image sits underneath; the Chandi image fades in on top. -->
+    <div class="landing">
+      <img class="landing__img landing__img--sona"   src="images/sona/landing.jpg"
+           alt="Gold jewellery on four postage stamps: Tadka, Jharokha, Nagina and Saadgi">
+      <img class="landing__img landing__img--chandi" src="images/chandi/landing.jpg"
+           alt="Silver jewellery on four postage stamps: Tadka, Jharokha, Nagina and Saadgi">
+
+      <!-- Four invisible links placed exactly over the four stamps.
+           Position comes from CSS (.stamp--tl / --tr / --bl / --br). -->
+      <a class="stamp stamp--tl" href="tadka.html"><span>Tadka</span></a>
+      <a class="stamp stamp--tr" href="jharokha.html"><span>Jharokha</span></a>
+      <a class="stamp stamp--bl" href="nagina.html"><span>Nagina</span></a>
+      <a class="stamp stamp--br" href="saadgi.html"><span>Saadgi</span></a>
+    </div>
+  </main>
+
+  <!-- Intro animation: must stay at the END of the body, after the .landing box exists -->
+  <script src="js/intro.js"></script>
+</body>
+</html>
