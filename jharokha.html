@@ -18,18 +18,22 @@
     <h1 class="sr-only">Jharokha collection</h1>
 
     <!-- The page picture: one image per theme, stacked (same idea as the landing page).
-         If the Chandi picture doesn't exist yet, onerror hides it and the Sona one stays. -->
+         If the Chandi picture doesn't exist yet, onerror marks the box as "chandi-missing"
+         and a "coming soon" panel is shown in Chandi mode instead. -->
     <div class="art">
       <img class="landing__img landing__img--sona" src="images/sona/jharokha-page.jpg"
-           alt="Jharokha in gold: an illustrated close-up of eyes, then three illustrated portraits of women wearing jewellery">
+           alt="Jharokha in gold: an illustrated close-up of eyes, a cream panel, then three illustrated portraits of women wearing jewellery">
       <img class="landing__img landing__img--chandi" src="images/chandi/jharokha-page.jpg"
-           alt="Jharokha in silver: an illustrated close-up of eyes, then three illustrated portraits of women wearing jewellery"
-           onerror="this.style.display='none'">
+           alt="Jharokha in silver: an illustrated close-up of eyes, a cream panel, then three illustrated portraits of women wearing jewellery"
+           onerror="this.closest('.art').classList.add('chandi-missing')">
+
+      <!-- Shown in Chandi mode until the silver picture exists -->
+      <div class="art-soon"><div><b>Chandi edition</b>Jharokha in silver is coming soon.</div></div>
 
       <!-- Five invisible links placed over the picture.
            CHANGE each href="#" to the page you want it to open. -->
       <a class="hot hot--eyes"  href="#" aria-label="Eyes banner"><span>Explore</span></a>
-      <a class="hot hot--panel" href="#" aria-label="Off-white panel"><span>Explore</span></a>
+      <a class="hot hot--panel" href="#" aria-label="Cream panel"><span>Explore</span></a>
       <a class="hot hot--one"   href="#" aria-label="Portrait: reading"><span>Explore</span></a>
       <a class="hot hot--two"   href="#" aria-label="Portrait: reclining"><span>Explore</span></a>
       <a class="hot hot--three" href="#" aria-label="Portrait: mirror"><span>Explore</span></a>
